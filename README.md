@@ -18,6 +18,125 @@ Das angekündigte Referenzpaket soll Daten, Formate, Produktionsabschnitt, feste
 
 Aktuell wird ausschließlich diese `README.md` im Repository-Hauptverzeichnis angelegt. Weitere Dateien, Verzeichnisse, Installationsanweisungen oder ausführbare Beispielaufrufe sind noch nicht vorhanden.
 
+
+## Arbeitsüberblick: Vom ersten Laborbesuch bis zur Abgabe
+
+**Planungsstand: 4. November 2026. Erster Laborbesuch: Mittwoch, 11. November 2026.**
+Alle folgenden Punkte sind offene Aufgaben. Der Laborbesuch ist nicht automatisch der Beginn der achtwöchigen Bearbeitungsfrist; Projektstart, Abgabetermin und Zuordnung zu den Projektwochen sind mit der Lehrperson zu bestätigen.
+
+### 1. Vor dem Laborbesuch vorbereiten
+
+- [ ] Aufgabenstellung zu Team C und gemeinsame Anforderungen gemeinsam lesen.
+- [ ] Die drei zu vergleichenden Transportregeln und die Abgrenzung zu Chargenbildung und Auftragsfreigabe erklären können.
+- [ ] Fragen aus der folgenden Laborcheckliste sammeln und priorisieren.
+- [ ] Rollen für den Besuch verteilen: Ablauf beobachten, MES-/Datenfragen klären, Protokoll und offene Punkte festhalten. Die Zuordnung im Team erfolgt gemeinsam.
+- [ ] Verfügbarkeit des Referenzpakets, Datenzugang und zulässige Dokumentation erfragen.
+
+**Ergebnis:** Gemeinsames Aufgabenverständnis und vorbereitete Fragenliste.
+
+### 2. Im Labor: Anlage und Regeln verstehen
+
+Ziel des ersten Besuchs ist ein fachlich belastbares Prozessbild. Noch nicht bekannte Abläufe werden als offene Fragen festgehalten.
+
+| Thema | Vor Ort beobachten oder erfragen | Festzuhaltender Nachweis |
+| --- | --- | --- |
+| Produktionsabschnitt | Welche Stationen und Produkte gehören zum Projekt? Wo liegen Start und Ende der Betrachtung? | Einfache Ablaufskizze mit Stationsbezeichnungen |
+| Konkreter Montagefall | Einen Vorgang von Werkstückankunft über Materialversorgung bis Montageabschluss nachvollziehen | Beispiel mit Auftrag, Position, Schritt, Lieferung und Zielstation |
+| Materialsatz und Box | Welche Komponenten und Mengen müssen gemeinsam vorliegen? Welche Boxinhalte sind zulässig? | Bestätigte Satz- und Boxregeln |
+| Materialmangel | Wohin fährt ein unversorgtes Werkstück weiter? Wann und unter welchen Bedingungen kehrt es zurück? | Weiterfahr- und Wiederkehrregel; Beobachtung oder fachliche Bestätigung |
+| Montagebereitschaft | Welche Vorgänger müssen beendet sein? Was passiert bei belegter Station? Welche Montagepriorität gilt? | Voraussetzungen einer nutzbaren Bearbeitungsmöglichkeit |
+| Lieferbereitschaft | Wann gilt eine Lieferung als kommissioniert und verfügbar? Welche Angaben enthält die Versorgungsliste? | Definition und verfügbare Produktionsreferenzen |
+| Robotinos | Welche Fahrzeuge sind zulässig? Welche Positionen, Zustände und Verfügbarkeiten sind bekannt? Ab wann ist ein Transport bindend? | Fahrzeugzustände und Bindungsregel |
+| Transportzeiten | Sind Leer- und Lastfahrdauern sowie Be- und Entladezeiten vorhanden? Welche Messungen wären ergänzend möglich? | Parameterquelle, Einheit und Datenlücken |
+| Übergabeplätze | Wie viele Plätze gibt es? Was geschieht bei voller Kapazität oder Sperrfenstern? | Kapazitäts-, Warte- und Übergaberegel |
+| Lade- und Parkvorgänge | Welche Regeln sind bindend und was darf im Modell ausdrücklich ausgeblendet werden? | Bestätigte Modellabgrenzung |
+| MES und Datenbank | Wo liegen Stammdaten, Aufträge, Positionen, Schritte, Bestände, Reservierungen und Historien? | Relevante Tabellen/Felder und Verknüpfungen |
+| Zeitbezug | Welche Zeitstempel sind geplant, tatsächlich gemessen oder nur gebucht? Sind Fahrzeugbewegungen historisch aufgezeichnet? | Bedeutung der Zeitfelder und Eignung zur Zeitermittlung |
+
+- [ ] Ein Beispiel möglichst vollständig verfolgen und fehlende Verbindungen notieren.
+- [ ] Beobachtete Abläufe von Aussagen der betreuenden Person und eigenen Annahmen unterscheiden.
+- [ ] Ungeklärte Regeln mit zuständiger Ansprechperson und nächstem Klärungsschritt festhalten.
+- [ ] Referenzpaket, Projektfrist und Umfangsbestätigung ansprechen.
+- [ ] Keine Änderungen an der produktiven Anlage vornehmen.
+
+**Ergebnis:** Laborprotokoll mit Prozessskizze, Beispielablauf, bestätigten Regeln, verfügbaren Daten und offenen Fragen. Ein fehlender Materialfall muss nicht künstlich ausgelöst werden; die Anlagenlogik kann fachlich geklärt werden.
+
+### 3. Nach dem Besuch: Daten und Modellgrenze festlegen
+
+- [ ] Beobachtungen zeitnah gemeinsam abgleichen und Widersprüche klären.
+- [ ] Referenzpaket prüfen, sobald es vorliegt; Beobachtungen mit den verbindlichen Projektregeln abgleichen.
+- [ ] Datenwörterbuch erstellen: Objekt, Feld, Bedeutung, Einheit, Schlüssel, Zeitbezug und Quelle.
+- [ ] Lieferung → Auftrag → Position → Arbeitsschritt → Materialsatz → Zielstation anhand eines Beispiels verknüpfen.
+- [ ] Datenqualität mit ausführbaren Regeln und mindestens einer manuellen Stichprobe untersuchen.
+- [ ] Befunde mit Anzahl, Anteil, Beispiel, Behandlung und Modellfolge erfassen; Rohdaten unverändert lassen.
+- [ ] Parameterherkunft trennen: MES-Wert, Ableitung, Beobachtung oder Szenarioannahme.
+- [ ] Modellgrenze, Kapazitäten, Ereignisse und Zustandsübergänge dokumentieren und den Umfang abstimmen.
+
+**Ergebnis bis Ende Projektwoche 2:** Erste Datenqualitätsanalyse, abgestimmte Modellabgrenzung, Parameterübersicht und Arbeitsplan. Fehlende historische Fahrdaten werden als Datenlücke ausgewiesen.
+
+### 4. Referenzplanung und Simulation aufbauen
+
+- [ ] Gemeinsame Ein- und Ausgaben für Planer, Simulation und unabhängige Prüfung definieren.
+- [ ] Referenz 1 umsetzen: Eingangsreihenfolge mit jeweils kürzester zulässiger Leerfahrtdauer.
+- [ ] Referenz 2 umsetzen: gemeinsame Zuordnung mit möglichst geringer gesamter Leerfahrtdauer.
+- [ ] SimPy-Modell mit mindestens zwei Fahrzeugen und mindestens zwei um Transporte konkurrierenden Stationen aufbauen; konkrete Stationszahl gemäß Referenzpaket.
+- [ ] Transportkette, Fahrzeugpositionen, Übergabekapazitäten und Ressourcenbindung abbilden.
+- [ ] Montagevoraussetzungen, Komponentenverbrauch sowie Weiterfahrt und Wiederkehr abbilden.
+- [ ] Planung nur zu festgelegten Ereignissen und mit dem dann bekannten Zustand aufrufen.
+- [ ] Ereignisprotokoll, Regeln für gleichzeitige Ereignisse, Endkriterium und maximale Laufzeit ergänzen.
+- [ ] Einen kleinen Ablauf von Hand durchgehen und mit dem simulierten Zeitprotokoll vergleichen.
+
+**Ergebnis bis Ende Projektwoche 4:** Lauffähiger Referenzplaner mit Simulation und Ereignisprotokoll gemäß Meilenstein. Beide Referenzregeln müssen spätestens für den abschließenden Vergleich verfügbar sein.
+
+### 5. Unabhängige Prüfung und eigene Regel entwickeln
+
+Die Prüfung wird bereits beim Aufbau der Referenzsimulation mitentwickelt.
+
+- [ ] Mengenbilanz, Satzvollständigkeit, Vorgängerfolge, Kapazitäten und eindeutige Aufgaben-/Fahrzeugbindung unabhängig prüfen.
+- [ ] Absichtlich fehlerhafte Ergebnisse erzeugen und nachweisen, dass die Prüfung Verstöße erkennt.
+- [ ] Produktionsorientierte Regel entwerfen: Welche Zuordnung ermöglicht voraussichtlich eine bevorstehende Montage oder vermeidet eine spätere Fertigstellung?
+- [ ] Zielhierarchie, Gleichstände und Umgang mit lange wartenden Lieferungen begründen.
+- [ ] Nur zum Entscheidungszeitpunkt bekannte Informationen verwenden.
+- [ ] Für einen kleinen Fall alle zulässigen Alternativen vollständig enumerieren und das Verfahren daran bewerten.
+- [ ] Einen nachvollziehbaren Fall zeigen, in dem eine verspätete Lieferung den Montageablauf tatsächlich verändert.
+
+**Ergebnis:** Drei vergleichbare Planungsverfahren und eine nachweislich wirksame Regelprüfung. Eine Leistungsverbesserung der eigenen Regel ist zu untersuchen und wird nicht vorausgesetzt.
+
+### 6. Vergleichsversuche durchführen und auswerten
+
+- [ ] Kennzahlen und Bezugspunkte festlegen, insbesondere die Vergleichsbasis für Verzögerungen von Montagebeginn und -abschluss.
+- [ ] Basisfall mit gleichmäßigem Produktionsbedarf durchführen.
+- [ ] Stressfall mit gleichzeitig versorgungsbedürftigen Stationen und unterschiedlichen Bearbeitungsmöglichkeiten durchführen.
+- [ ] Stressfall mit zeitweiligem Entzug eines freien Fahrzeugs durchführen.
+- [ ] Alle drei Regeln je Fall mit denselben Eingaben, Abläufen und Ressourcen vergleichen.
+- [ ] Hauptvergleich mit festen Dauern durchführen.
+- [ ] Eine aus der Datenanalyse begründete Unsicherheit untersuchen, etwa Fahrdauern oder Werkstückankunftszeiten.
+- [ ] Parameterwahl und abschließende Prüfung auf getrennten Szenarien durchführen.
+- [ ] Verpasste Bearbeitungsmöglichkeiten, Montageverzögerungen, erledigte/offene Montagevorgänge, Leerfahrtdauer, Transportwartezeiten und Fahrzeugbelegung auswerten.
+- [ ] Tatsächliche materialbedingte Stationsstillstände separat erfassen und Verzögerungsursachen begründen.
+- [ ] Offene Arbeit und Zustände am Laufende sowie Stillstände ohne Fortschritt berichten.
+
+**Ergebnis:** Reproduzierbare Basis- und Stressvergleiche, Sensitivitätsanalyse und begründete Aussage, unter welchen Bedingungen welche Regel vorteilhaft ist.
+
+### 7. Abgabe fertigstellen
+
+- [ ] Hausarbeit fortlaufend aus Datenbefunden, Modellentscheidungen und Versuchsergebnissen aufbauen.
+- [ ] Datenherkunft, Aufbereitung, Parameter und alle wesentlichen Annahmen nachvollziehbar dokumentieren.
+- [ ] Python-Code mit Abhängigkeiten, Ein-/Ausgaben und Beispielaufrufen beschreiben.
+- [ ] Gesamten Ablauf von der Aufbereitung bis zur unabhängigen Prüfung erneut ausführen.
+- [ ] Ergebnisse, Grenzen und Handlungsempfehlung gemeinsam prüfen.
+- [ ] Abgabeumfang und Termin mit den bestätigten Vorgaben abgleichen.
+
+**Ergebnis bis zum bestätigten Abgabetermin:** Hausarbeit, lauffähiger Code und reproduzierbare Nachweise. Die Aussage bleibt auf den modellierten Produktionsabschnitt begrenzt.
+
+### Zusammenarbeit und nächste Entscheidung
+
+Moritz Spieker, Orkun Yavas und Viola Fürer legen nach dem Laborbesuch gemeinsam Verantwortliche fest. Für jedes Arbeitspaket sollen eine verantwortliche Person, eine prüfende Person, ein Zieltermin und ein prüfbares Ergebnis festgehalten werden. Anlagenverständnis und Ergebnisinterpretation bleiben gemeinsame Aufgaben.
+
+Als theoretische Unterstützung dienen insbesondere die Lehrunterlagen zu Datenverwaltung (Kapitel 02), Reihenfolgeregeln (Kapitel 05), Produktionslogistik (Kapitel 11), MES-Ereignissen (Kapitel 12) und logistischen Zielkonflikten (Kapitel 13). Verbindliche projektspezifische Regeln folgen aus Aufgabenstellung, Referenzpaket und bestätigter Abstimmung.
+
+**Unmittelbar nächster Schritt:** Laborcheckliste im Team durchgehen, Beobachtungsrollen verteilen und am 11. November die offenen Anlagen- und Datenfragen klären.
+
 ## Projektziel und Abgrenzung
 
 Entwickelt werden soll ein Python-Verfahren, das entscheidet, **welche bereits kommissionierte, bereitstehende Lieferung welches zulässige Robotino-Fahrzeug als Nächstes übernimmt**. Ziel ist, anstehende Bearbeitungsmöglichkeiten der Montage rechtzeitig mit Material zu versorgen. Eine kurze Leerfahrt allein genügt dafür nicht.
