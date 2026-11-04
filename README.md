@@ -1,7 +1,5 @@
 # Team C: Produktionsorientierte Priorisierung und Zuordnung von Materialtransporten
 
-Prüfungsprojekt **Operations Management in der IoT Factory**
-
 ## Team
 
 - Moritz Spieker
