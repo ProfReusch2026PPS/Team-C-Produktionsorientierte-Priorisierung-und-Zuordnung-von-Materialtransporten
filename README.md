@@ -156,6 +156,22 @@ Aussagen gelten ausschließlich für den dokumentierten Produktionsabschnitt. Ä
 
 Jede Lieferung muss zu Produktionsauftrag, Position, Arbeitsschritt, vollständigem Materialsatz und Zielstation nachvollziehbar verknüpft werden. Zu untersuchen sind die relevanten MES-Tabellen und Felder sowie verfügbare Bestands-, Zeit- und Fahrzeugdaten. Eine feste Versorgungsliste enthält die Produktionsreferenzen.
 
+### Erste Sichtung des Factory-Datenbankexports
+
+Der SQL-Export vom 7. August 2026 enthält historische Fertigungsdaten, Stammdaten und einen Exportstand der Boxen und Puffer. Die folgende Zuordnung dient als Ausgangspunkt für die Datenprüfung.
+
+| Tabellen | Bedeutung für Team C |
+| --- | --- |
+| `tblfinorder`, `tblfinorderpos`, `tblfinstep` | Historische Aufträge, Positionen und Schritte. `tblfinstep` enthält Ressourcenbezug, Soll- und Ist-Zeiten sowie den vorgesehenen Folgeschritt. |
+| `tblstepdef`, `tblresourceoperation`, `tblparts` | Arbeitsplandefinitionen, Vorgabezeiten je Ressource und Operation sowie Teilestammdaten. |
+| `tblbox`, `tblboxpos`, `tblboxdef` | Boxen, erfasste Inhalte und Boxaufbau. Auftragsnummer und Position bieten einen Ansatz zur Zuordnung eines Materialsatzes. |
+| `tblbuffer`, `tblbufferpos` | Puffer und Pufferpositionen mit Mengen, Boxbezug und Buchungsmerkmal. Feldbedeutungen und Übergabekapazitäten fachlich bestätigen. |
+| `tblresource`, `tblagvdocked`, `tbltopology` | Ressourcen, AGV-Andockzuordnungen und Anlagenverbindungen. In `tblagvdocked` steht bei allen sechs Einträgen die Ressourcen-ID `0`. Die Bedeutung ist offen. |
+
+`tblorder`, `tblorderpos` und `tblstep` enthalten im Export keine Datensätze. **Erste manuelle Stichprobe:** Einen konkreten Montageschritt aus `tblfinstep` über `ONo` und `OPos` bis zur Auftragsposition, Station und einem passenden Boxeintrag verfolgen. Dabei fehlende Zuordnungen und Mehrfachtreffer dokumentieren.
+
+**Offen für die Simulation:** Zeitpunkt der Lieferbereitschaft, getrennte Leer- und Lastfahrdauern sowie Weiterfahrt und Wiederkehr bei Materialmangel. Bei der ersten Sichtung wurde keine belastbare Robotino-Fahrhistorie gefunden. Die Bedeutung von `TransportTime` und den Zeitstempeln ist vor ihrer Verwendung als Modellparameter zu bestätigen. Box- und Pufferdaten zeigen den Exportstand.
+
 ### Vorgesehene Datenprüfung
 
 Geprüft werden Bedeutung, Einheiten und Zeitbezug, fehlende Werte, doppelte Schlüssel, widersprüchliche Statusangaben, Mengen- und Zeitplausibilität sowie fehlende Referenzen und Mehrfachzählungen bei Verknüpfungen.
