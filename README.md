@@ -2,30 +2,30 @@
 
 ## Team
 
-- Moritz Spieker
-- Orkun Yavas
-- Viola Fürer
+Die Aufgabenverteilung wurde am 19.11.2026 im Team abgestimmt.
+
+| Arbeitspaket | Verantwortlich | Aufgaben |
+| --- | --- | --- |
+| A · MES-Daten und unabhängige Prüfung | **Viola Fürer** | MES-Daten aufbereiten, Datenlücken dokumentieren und Simulationsergebnisse unabhängig prüfen. |
+| B · Transportregeln und Auswertung | **Orkun Yavas** | Die drei Zuordnungsregeln umsetzen, am Kleinstfall prüfen und die Versuchsergebnisse auswerten. |
+| C · SimPy-Modell und Versuchsläufe | **Moritz Spieker** | Das SimPy-Modell und das Ereignisprotokoll erstellen sowie Basisfall, zwei Stressfälle und Sensitivitätsanalyse durchführen. |
 
 ## Projektstatus und fachliche Grundlage
 
-**Es gibt noch keine Implementierung. Das Referenzpaket steht noch aus.** Dieses README beschreibt den vorgesehenen Arbeitsumfang und die Anforderungen; es dokumentiert keine bereits erzielten Ergebnisse, bestandenen Prüfungen oder bestätigten Leistungsverbesserungen.
+**Stand 19.11.2026.** Die Zwischenpräsentation vom 18.11.2026 dokumentiert die Planungsaufgabe, den vorgesehenen Vergleich der drei Transportregeln und erste Befunde aus den MES-Snapshots. Die Umsetzung der Regeln, der SimPy-Simulation und der unabhängigen Prüfung sowie die Vergleichsversuche stehen als nächste Arbeitsschritte an.
 
 Fachliche Grundlage ist `Pruefungsprojekte_IoT_Factory_Studierende(1).pdf`, Stand 30. Oktober 2026: Team C auf Seiten 4–5, gemeinsame Anforderungen und Abgaben auf Seiten 6–7 sowie Arbeitsrahmen und Zwischenstände auf Seite 1.
 
 Das angekündigte Referenzpaket soll Daten, Formate, Produktionsabschnitt, feste Umgebungsregeln und ein kleines SimPy-Grundgerüst bereitstellen. Konkrete Datenfelder, Parameter, Stationszahl und Anlagenregeln werden nach dessen Bereitstellung geprüft. Das fachliche Simulationsmodell entwickelt das Team selbst. Ergebnisse oder Code anderer Teams werden nicht benötigt.
 
-Aktuell wird ausschließlich diese `README.md` im Repository-Hauptverzeichnis angelegt. Weitere Dateien, Verzeichnisse, Installationsanweisungen oder ausführbare Beispielaufrufe sind noch nicht vorhanden.
-
-
 ## Arbeitsüberblick: Vom ersten Laborbesuch bis zur Abgabe
 
-**Planungsstand: 4. November 2026. Erster Laborbesuch: Mittwoch, 11. November 2026.**
-Alle folgenden Punkte sind offene Aufgaben. Der Laborbesuch ist nicht automatisch der Beginn der achtwöchigen Bearbeitungsfrist; Projektstart, Abgabetermin und Zuordnung zu den Projektwochen sind mit der Lehrperson zu bestätigen.
+**Arbeitsstand vom 19.11.2026.** Abgehakt sind Grundlagen und Entwürfe, die in der Zwischenpräsentation dokumentiert oder in der Teamabstimmung beschlossen wurden. Die Zuordnung zu den Projektwochen richtet sich nach dem bestätigten Projektstart. Die Abschlusspräsentation findet am 16.12.2026 statt. Für die Fertigstellung ist Anfang Januar 2027 vorgesehen.
 
 ### 1. Vor dem Laborbesuch vorbereiten
 
-- [ ] Aufgabenstellung zu Team C und gemeinsame Anforderungen gemeinsam lesen.
-- [ ] Die drei zu vergleichenden Transportregeln und die Abgrenzung zu Chargenbildung und Auftragsfreigabe erklären können.
+- [x] Aufgabenstellung und Projektgrenze für Team C klären.
+- [x] Die drei zu vergleichenden Transportregeln beschreiben und die Aufgabe von Chargenbildung und Auftragsfreigabe abgrenzen.
 - [ ] Fragen aus der folgenden Laborcheckliste sammeln und priorisieren.
 - [ ] Rollen für den Besuch verteilen: Ablauf beobachten, MES-/Datenfragen klären, Protokoll und offene Punkte festhalten. Die Zuordnung im Team erfolgt gemeinsam.
 - [ ] Verfügbarkeit des Referenzpakets, Datenzugang und zulässige Dokumentation erfragen.
@@ -51,7 +51,9 @@ Ziel des ersten Besuchs ist ein fachlich belastbares Prozessbild. Noch nicht bek
 | MES und Datenbank | Wo liegen Stammdaten, Aufträge, Positionen, Schritte, Bestände, Reservierungen und Historien? | Relevante Tabellen/Felder und Verknüpfungen |
 | Zeitbezug | Welche Zeitstempel sind geplant, tatsächlich gemessen oder nur gebucht? Sind Fahrzeugbewegungen historisch aufgezeichnet? | Bedeutung der Zeitfelder und Eignung zur Zeitermittlung |
 
-- [ ] Ein Beispiel möglichst vollständig verfolgen und fehlende Verbindungen notieren.
+- [x] Den Grundablauf der Materialversorgung beschreiben und einen konkreten Produktionslauf von RASS1 bis RASS3 anhand der MES-Snapshots nachvollziehen.
+- [ ] Den Beispielablauf bis zur Verknüpfung von Lieferung, Materialsatz und Zielstation vervollständigen.
+- [ ] Genaue Wiederkehrregel bei Materialmangel und Kapazitäten der Übergabeplätze fachlich bestätigen.
 - [ ] Beobachtete Abläufe von Aussagen der betreuenden Person und eigenen Annahmen unterscheiden.
 - [ ] Ungeklärte Regeln mit zuständiger Ansprechperson und nächstem Klärungsschritt festhalten.
 - [ ] Referenzpaket, Projektfrist und Umfangsbestätigung ansprechen.
@@ -65,6 +67,9 @@ Ziel des ersten Besuchs ist ein fachlich belastbares Prozessbild. Noch nicht bek
 - [ ] Referenzpaket prüfen, sobald es vorliegt; Beobachtungen mit den verbindlichen Projektregeln abgleichen.
 - [ ] Datenwörterbuch erstellen: Objekt, Feld, Bedeutung, Einheit, Schlüssel, Zeitbezug und Quelle.
 - [ ] Lieferung → Auftrag → Position → Arbeitsschritt → Materialsatz → Zielstation anhand eines Beispiels verknüpfen.
+- [x] MES-Snapshots sichten und wesentliche Datenlücken erfassen. Dazu gehören fehlende belastbare Fahrzeiten und die fehlende historische Fahrzeugzuordnung.
+- [x] Die fachliche Modellgrenze im Entwurf dokumentieren.
+- [ ] Fahrzeiten durch Messwerte oder dokumentierte Szenarioannahmen festlegen.
 - [ ] Datenqualität mit ausführbaren Regeln und mindestens einer manuellen Stichprobe untersuchen.
 - [ ] Befunde mit Anzahl, Anteil, Beispiel, Behandlung und Modellfolge erfassen; Rohdaten unverändert lassen.
 - [ ] Parameterherkunft trennen: MES-Wert, Ableitung, Beobachtung oder Szenarioannahme.
@@ -74,6 +79,7 @@ Ziel des ersten Besuchs ist ein fachlich belastbares Prozessbild. Noch nicht bek
 
 ### 4. Referenzplanung und Simulation aufbauen
 
+- [x] Den Aufbau aus Planer, SimPy-Simulation mit Ereignisprotokoll und unabhängiger Prüfung skizzieren.
 - [ ] Gemeinsame Ein- und Ausgaben für Planer, Simulation und unabhängige Prüfung definieren.
 - [ ] Referenz 1 umsetzen: Eingangsreihenfolge mit jeweils kürzester zulässiger Leerfahrtdauer.
 - [ ] Referenz 2 umsetzen: gemeinsame Zuordnung mit möglichst geringer gesamter Leerfahrtdauer.
@@ -92,7 +98,8 @@ Die Prüfung wird bereits beim Aufbau der Referenzsimulation mitentwickelt.
 
 - [ ] Mengenbilanz, Satzvollständigkeit, Vorgängerfolge, Kapazitäten und eindeutige Aufgaben-/Fahrzeugbindung unabhängig prüfen.
 - [ ] Absichtlich fehlerhafte Ergebnisse erzeugen und nachweisen, dass die Prüfung Verstöße erkennt.
-- [ ] Produktionsorientierte Regel entwerfen: Welche Zuordnung ermöglicht voraussichtlich eine bevorstehende Montage oder vermeidet eine spätere Fertigstellung?
+- [x] Einen ersten Entwurf der produktionsorientierten Regel erstellen. Vorrang haben Lieferungen, die voraussichtlich eine anstehende Montage ermöglichen.
+- [ ] Die produktionsorientierte Regel umsetzen und die Produktionswirkung am Beispiel prüfen.
 - [ ] Zielhierarchie, Gleichstände und Umgang mit lange wartenden Lieferungen begründen.
 - [ ] Nur zum Entscheidungszeitpunkt bekannte Informationen verwenden.
 - [ ] Für einen kleinen Fall alle zulässigen Alternativen vollständig enumerieren und das Verfahren daran bewerten.
@@ -102,6 +109,8 @@ Die Prüfung wird bereits beim Aufbau der Referenzsimulation mitentwickelt.
 
 ### 6. Vergleichsversuche durchführen und auswerten
 
+- [x] Basisfall, zwei Stressfälle und Sensitivitätsanalyse im Entwurf festlegen.
+- [x] Materialbedingt verpasste Bearbeitungsmöglichkeiten als Hauptkennzahl festlegen.
 - [ ] Kennzahlen und Bezugspunkte festlegen, insbesondere die Vergleichsbasis für Verzögerungen von Montagebeginn und -abschluss.
 - [ ] Basisfall mit gleichmäßigem Produktionsbedarf durchführen.
 - [ ] Stressfall mit gleichzeitig versorgungsbedürftigen Stationen und unterschiedlichen Bearbeitungsmöglichkeiten durchführen.
@@ -127,13 +136,18 @@ Die Prüfung wird bereits beim Aufbau der Referenzsimulation mitentwickelt.
 
 **Ergebnis bis zum bestätigten Abgabetermin:** Hausarbeit, lauffähiger Code und reproduzierbare Nachweise. Die Aussage bleibt auf den modellierten Produktionsabschnitt begrenzt.
 
-### Zusammenarbeit und nächste Entscheidung
+### Zusammenarbeit und nächste Schritte
 
-Moritz Spieker, Orkun Yavas und Viola Fürer legen nach dem Laborbesuch gemeinsam Verantwortliche fest. Für jedes Arbeitspaket sollen eine verantwortliche Person, eine prüfende Person, ein Zieltermin und ein prüfbares Ergebnis festgehalten werden. Anlagenverständnis und Ergebnisinterpretation bleiben gemeinsame Aufgaben.
+- [x] Verantwortliche für alle drei Arbeitspakete festlegen. Die Zuordnung steht im Abschnitt [Team](#team).
+- Viola stellt Orkun und Moritz einen gemeinsamen Testdatensatz bereit.
+- Orkun stellt Moritz die Zuordnungsregeln über eine Schnittstelle bereit, die das Team gemeinsam festlegt.
+- Moritz gibt die Ereignisprotokolle an Viola zur unabhängigen Prüfung und an Orkun zur Auswertung weiter.
+
+Anlagenverständnis, Schnittstellen und Ergebnisinterpretation stimmt das Team gemeinsam ab.
 
 Als theoretische Unterstützung dienen insbesondere die Lehrunterlagen zu Datenverwaltung (Kapitel 02), Reihenfolgeregeln (Kapitel 05), Produktionslogistik (Kapitel 11), MES-Ereignissen (Kapitel 12) und logistischen Zielkonflikten (Kapitel 13). Verbindliche projektspezifische Regeln folgen aus Aufgabenstellung, Referenzpaket und bestätigter Abstimmung.
 
-**Unmittelbar nächster Schritt:** Laborcheckliste im Team durchgehen, Beobachtungsrollen verteilen und am 11. November die offenen Anlagen- und Datenfragen klären.
+Als Nächstes ergänzt Viola das Befundregister, Moritz baut in SimPy einen ersten Beispielablauf auf und Orkun setzt die beiden Referenzregeln um.
 
 ## Projektziel und Abgrenzung
 
@@ -279,7 +293,7 @@ Eine Verbesserung im Modell belegt keine Verbesserung der realen Anlage. Auch ei
 
 ## Meilensteine
 
-Die Aufgabenstellung sieht acht Wochen Bearbeitungszeit vor. Kalendertermine werden nach Bestätigung des Projektstarts ergänzt.
+Die Aufgabenstellung sieht acht Projektwochen vor. Die Abschlusspräsentation findet am 16.12.2026 statt. Die Fertigstellung ist für Anfang Januar 2027 vorgesehen.
 
 | Zeitpunkt | Geplanter Zwischenstand |
 | --- | --- |
@@ -295,4 +309,4 @@ Erkenntnisse aus Prüfung und Auswertung können erneute Datenanalysen oder Mode
 - **Lauffähiger Python-Code:** Planung, SimPy-Simulation und unabhängige Prüfung mit dokumentierten Ein- und Ausgaben, Abhängigkeiten und Beispielaufruf.
 - **Reproduzierbare Nachweise:** Datenherkunft und Aufbereitung, Befundregister, Parameter, Ereignisprotokolle, Basis- und Stressvergleiche sowie Sensitivitätsanalyse.
 
-Diese Abgaben sind geplant und noch nicht vorhanden. Der nächste fachliche Schritt ist die Prüfung des ausstehenden Referenzpakets und die darauf aufbauende Bestätigung von Datenbasis, Parametern und Modellgrenzen.
+Für die Abgabe werden die geprüften Datenbefunde, die lauffähigen Module und die Versuchsergebnisse zusammengeführt.
