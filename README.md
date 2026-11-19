@@ -8,7 +8,9 @@
 
 ## Projektstatus und fachliche Grundlage
 
-**Es gibt noch keine Implementierung. Das Referenzpaket steht noch aus.** Dieses README beschreibt den vorgesehenen Arbeitsumfang und die Anforderungen; es dokumentiert keine bereits erzielten Ergebnisse, bestandenen Prüfungen oder bestätigten Leistungsverbesserungen.
+> **Update 19.11.2026:** Ein erstes Projektgerüst (Export, Snapshot-Umwandlung, Datenqualität, Planer mit Referenzregeln 1 und 2, SimPy-Gerüst, unabhängige Prüfung) sowie ein Befundregister-Entwurf aus den MES-Snapshots vom 09.11. liegen jetzt vor, siehe [`CODE.md`](CODE.md) und [`ergebnisse/`](ergebnisse/). Die Simulation arbeitet noch mit Demo-Werten; die Ergebnisse sind ein erster, noch nicht im Team geprüfter Stand. Rohdaten sind nicht im Repository, da die MES-Abzüge Passwörter enthalten.
+
+**Das Referenzpaket steht noch aus.** Dieses README beschreibt den vorgesehenen Arbeitsumfang und die Anforderungen; es dokumentiert keine bereits erzielten Ergebnisse, bestandenen Prüfungen oder bestätigten Leistungsverbesserungen.
 
 Fachliche Grundlage ist `Pruefungsprojekte_IoT_Factory_Studierende(1).pdf`, Stand 30. Oktober 2026: Team C auf Seiten 4–5, gemeinsame Anforderungen und Abgaben auf Seiten 6–7 sowie Arbeitsrahmen und Zwischenstände auf Seite 1.
 
