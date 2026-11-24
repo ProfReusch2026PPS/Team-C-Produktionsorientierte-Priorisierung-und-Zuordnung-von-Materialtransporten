@@ -10,6 +10,12 @@ Die Aufgabenverteilung wurde am 19.11.2026 im Team abgestimmt.
 | B · Transportregeln und Auswertung | **Orkun Yavas** | Die drei Zuordnungsregeln umsetzen, am Kleinstfall prüfen und die Versuchsergebnisse auswerten. |
 | C · SimPy-Modell und Versuchsläufe | **Moritz Spieker** | Das SimPy-Modell und das Ereignisprotokoll erstellen sowie Basisfall, zwei Stressfälle und Sensitivitätsanalyse durchführen. |
 
+### Arbeitspaket C – Stand 24.11.2026
+
+Moritz hat die Einarbeitung in SimPy abgeschlossen und einen vereinfachten Robotino-Transport mit Leerfahrt, Beladung und Lastfahrt modelliert. In lokalen Testläufen mit drei Aufträgen hat er die Eingangsreihenfolge (FIFO) mit einer festen Auftragspriorität verglichen. Weitere Tests mit einem und zwei verfügbaren Robotinos, veränderten Freigabezeitpunkten und längerer Beladung zeigten, wie sich Wartezeiten, Ankunftszeiten und Fahrzeugleerlauf verändern.
+
+Im Prioritätstest wurde der Robotino bei Sekunde 42 frei. War der dringende Auftrag C bereits bei Sekunde 41 bereit, kam seine Box bei Sekunde 84 an. Bei Freigabe in Sekunde 43 lief der Transport von B bereits, und C erreichte sein Ziel erst bei Sekunde 126. Alle Zeitangaben stammen aus dem Übungsmodell mit angenommenen Dauern.
+
 ## Projektstatus und fachliche Grundlage
 
 **Stand 19.11.2026.** Die Zwischenpräsentation vom 18.11.2026 dokumentiert die Planungsaufgabe, den vorgesehenen Vergleich der drei Transportregeln und erste Befunde aus den MES-Snapshots. Die Umsetzung der Regeln, der SimPy-Simulation und der unabhängigen Prüfung sowie die Vergleichsversuche stehen als nächste Arbeitsschritte an.
@@ -147,7 +153,7 @@ Anlagenverständnis, Schnittstellen und Ergebnisinterpretation stimmt das Team g
 
 Als theoretische Unterstützung dienen insbesondere die Lehrunterlagen zu Datenverwaltung (Kapitel 02), Reihenfolgeregeln (Kapitel 05), Produktionslogistik (Kapitel 11), MES-Ereignissen (Kapitel 12) und logistischen Zielkonflikten (Kapitel 13). Verbindliche projektspezifische Regeln folgen aus Aufgabenstellung, Referenzpaket und bestätigter Abstimmung.
 
-Als Nächstes ergänzt Viola das Befundregister, Moritz baut in SimPy einen ersten Beispielablauf auf und Orkun setzt die beiden Referenzregeln um.
+Als Nächstes ergänzt Viola das Befundregister, Moritz ergänzt den Beispielablauf um ein strukturiertes Ereignisprotokoll zur Auswertung von Wartezeiten, Ankunftszeiten und Fahrzeugbelegung und Orkun setzt die beiden Referenzregeln um.
 
 ## Projektziel und Abgrenzung
 
