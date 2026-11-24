@@ -7,8 +7,8 @@ Die Meilensteine folgen der fachlichen Reihenfolge. Die Checklisten zeigen, welc
 
 ## Meilensteine
 
-- [ ] **M1 · In SimPy einarbeiten.** Ein eigenständiges Übungsmodell mit frei erfundenen Daten ausführen. Zwei Aufträge teilen sich ein Fahrzeug. Start, Ende und Wartezeit sind im Protokoll nachvollziehbar. Die Tests E1 und E2 sind erfüllt.
-- [ ] **M2 · Testdaten und Schnittstellen abstimmen.** Viola stellt einen kleinen Projektdatensatz mit zwei Robotinos und zwei konkurrierenden Stationen bereit. Mit Orkun und Viola sind die Eingaben des Planers, das Format der Fahrzeugzuordnung und die Pflichtfelder des Ereignisprotokolls abgestimmt. Das Protokoll enthält mindestens Zeit in Sekunden, Ereignis, Identität, Ressource und Zustandsänderung.
+- [x] **M1 · In SimPy einarbeiten.** Abgeschlossen am 24.11.2026. Die lokalen Läufe E1 und E2 zeigen Transportbeginn, Ankunft, Wartezeit und Fahrzeugfreigabe.
+- [ ] **M2 · Testdaten und Schnittstellen abstimmen (nächster Meilenstein).** Viola stellt einen kleinen Projektdatensatz mit zwei Robotinos und zwei konkurrierenden Stationen bereit. Mit Orkun und Viola sind die Eingaben des Planers, das Format der Fahrzeugzuordnung und die Pflichtfelder des Ereignisprotokolls abgestimmt. Das Protokoll enthält mindestens Zeit in Sekunden, Ereignis, Identität, Ressource und Zustandsänderung.
 - [ ] **M3 · Ersten Projektablauf simulieren.** Die erste Referenzregel läuft von der Lieferbereitschaft über Zuordnung, Transport und Übergabe bis zum Montageende. Je ein protokollierter Lauf zeigt die rechtzeitige und die verspätete Lieferung (T1 und T2). Fahrzeugpositionen werden für nachfolgende Zuordnungen fortgeschrieben.
 - [ ] **M4 · Alle drei Transportregeln integrieren und testen.** Orkuns Regeln sind über dieselbe Schnittstelle aufrufbar. Die Modelltests T3 bis T7 sind durchgeführt. Viola kann die Ereignisprotokolle mit ihrer getrennt aufrufbaren Prüfung kontrollieren.
 - [ ] **M5 · Versuchsläufe abschließen und Präsentation vorbereiten.** Basisfall, beide Stressfälle und Sensitivitätsanalyse sind ausgeführt, geprüft und ausgewertet. Eingaben, Parameter und Protokolle stehen Viola zur Prüfung und Orkun zur Auswertung zur Verfügung. Ein kurzer Ablauf für die Präsentation zeigt die Wirkung einer Zuordnung auf die Montage.
@@ -17,12 +17,21 @@ Die Meilensteine folgen der fachlichen Reihenfolge. Die Checklisten zeigen, welc
 
 ## Einarbeitung mit frei erfundenen Daten
 
-Das Übungsmodell verwendet ein Fahrzeug mit Kapazität eins. Alle Aufträge und Zeiten sind frei gewählt.
+Die lokalen Testläufe am 24.11.2026 verwendeten SimPy 4.1.2 und frei gewählte Zeiten. Ein Transport dauerte im Grundfall 42 s (10 s Leerfahrt, 12 s Beladen und 20 s Lastfahrt).
 
-| Test | Aufbau | Erwartetes Ergebnis |
+| Test | Aufbau | Beobachtung im Konsolenprotokoll |
 | --- | --- | --- |
-| **E1 · Simulationszeit** | Auftrag 1 startet bei 0 s und beansprucht das Fahrzeug 10 s. | Das Protokoll zeigt den Start bei 0 s und das Ende bei 10 s. |
-| **E2 · Warteschlange und Freigabe** | Auftrag 1 läuft wie in E1. Auftrag 2 wird bei 2 s bereit, benötigt dasselbe Fahrzeug und dauert 5 s. | Auftrag 2 wartet 8 s, startet bei 10 s und endet bei 15 s. Das Fahrzeug bearbeitet höchstens einen Auftrag gleichzeitig. |
+| **E1 · Simulationszeit** | Ein Robotino fährt bei 0 s los. | Das Beladen beginnt bei 10 s, die Lastfahrt bei 22 s. Die Box erreicht die Station bei 42 s. |
+| **E2 · Warteschlange und Freigabe** | Ein Robotino bedient A, B und C nach FIFO. Die Aufträge sind bei 0 s, 15 s und 20 s bereit. | A fährt von 0 bis 42 s. B startet bei 42 s nach 27 s Wartezeit. C startet bei 84 s nach 64 s Wartezeit und kommt bei 126 s an. |
+
+### Weitere Übungstests
+
+| Versuch | Beobachtung |
+| --- | --- |
+| **FIFO und feste Priorität** | Bei gleicher Freigabe wie in E2 fährt mit Vorrang für C zuerst A, dann C und zuletzt B. C kommt bei 84 s an, unter FIFO bei 126 s. Wird C erst bei 41 s bereit, greift der Vorrang bei der Vergabe bei 42 s ebenfalls. Bei Freigabe von C bei 43 s fährt B bereits. C erreicht die Station dann erst bei 126 s. |
+| **Zwei Robotinos** | A und B starten bei 0 s und 15 s. C wird bei 20 s bereit, wartet bis zur Freigabe des ersten Fahrzeugs bei 42 s und kommt bei 84 s an. |
+| **Längere Beladung** | Mit einem Robotino, Vorrang für C und 20 s Beladezeit für C erreicht C die Station bei 92 s. Der angenommene Termin bei 90 s wird um 2 s verfehlt. B kommt bei 134 s an. |
+| **Leerlauf** | Bei Freigaben von 0 s, 50 s und 100 s starten alle Aufträge sofort. Der Robotino ist von 42 bis 50 s und von 92 bis 100 s frei. Das ergibt 16 s Leerlauf und 126 s Belegung in 142 s Simulationszeit. |
 
 ## Projekttests für das SimPy-Modell
 
