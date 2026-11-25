@@ -1,0 +1,10 @@
+﻿werkstueck;station;bedarf_ab;ist_montage_start;ist_montage_ende;montage_dauer;warten_bis_start;quelle
+9176.1;RASS1;17;760;889;129;743;tblfinstep StepNo 10 Ende / 20 Start / 70 Ende
+9178.1;RASS1;57;893;1025;132;836;tblfinstep StepNo 10 Ende / 20 Start / 70 Ende
+9178.2;RASS1;106;608;756;148;502;tblfinstep StepNo 10 Ende / 20 Start / 70 Ende
+9178.2;RASS2;771;1788;1908;120;1017;tblfinstep StepNo 80 Ende / 90 Start / 120 Ende
+9176.1;RASS2;904;1663;1785;122;759;tblfinstep StepNo 80 Ende / 90 Start / 120 Ende
+9178.1;RASS2;1042;1912;2031;119;870;tblfinstep StepNo 80 Ende / 90 Start / 120 Ende
+9176.1;RASS3;1809;2365;2425;60;556;tblfinstep StepNo 140 Ende / 150 Start / 170 Ende
+9178.2;RASS3;2098;2299;2361;62;201;tblfinstep StepNo 140 Ende / 150 Start / 170 Ende
+9178.1;RASS3;2153;2429;2489;60;276;tblfinstep StepNo 140 Ende / 150 Start / 170 Ende
