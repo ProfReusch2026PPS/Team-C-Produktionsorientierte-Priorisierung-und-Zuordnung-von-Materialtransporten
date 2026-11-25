@@ -1,0 +1,13 @@
+﻿werkstueck;station;bedarf_ab;montage_dauer;quelle
+P1.1;RASS1;130;132;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P1.2;RASS1;262;132;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P1.1;RASS2;300;120;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P1.3;RASS1;394;132;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P1.2;RASS2;432;120;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P1.3;RASS2;564;120;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P2.1;RASS1;1300;132;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P2.2;RASS1;1432;132;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P2.1;RASS2;1500;120;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P2.3;RASS1;1564;132;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P2.2;RASS2;1632;120;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+P2.3;RASS2;1764;120;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"

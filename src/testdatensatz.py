@@ -7,6 +7,9 @@ Ergebnis (data/testdaten/testlauf_2026-11-09/):
   fahrzeiten.csv         Fahrzeiten PICKSORT <-> RASS (Szenarioannahme, NICHT aus dem MES)
   ist_referenz.csv       tatsächliche Zeitpunkte zum Vergleich mit der Simulation
 
+Zusätzlich (data/testdaten/konkurrenz_2rass/): kleiner Projektdatensatz mit 2 Robotinos und
+2 konkurrierenden Stationen, abgeleitet aus dem Testlauf (siehe erstelle_konkurrenz).
+
 Alle Zeiten in Sekunden ab t0 = Freigabe des ersten Werkstücks (09.11.2026 15:07:48).
 Die Datei enthält keine Passwörter oder Benutzerdaten und darf ins Repository.
 
@@ -14,7 +17,8 @@ Aufruf:
   python -m src.testdatensatz "../MES_database_snapschots/DB_Export_2026.11.09_1557_production_finished.sql"
 In Python:
   from src.testdatensatz import lade_testdatensatz
-  fahrzeuge, fahrzeit, lieferungen, bedarf = lade_testdatensatz()
+  fahrzeuge, fahrzeit, lieferungen, bedarf = lade_testdatensatz()            # Testlauf 09.11.
+  fahrzeuge, fahrzeit, lieferungen, bedarf = lade_testdatensatz(KONKURRENZ)  # Konkurrenzfall
 """
 import argparse
 import csv
@@ -107,6 +111,59 @@ def erstelle(dump):
     return t0
 
 
+KONKURRENZ = PROJEKT / "data" / "testdaten" / "konkurrenz_2rass"
+
+
+def _schreibe(ordner, name, zeilen):
+    ordner.mkdir(parents=True, exist_ok=True)
+    with open(ordner / f"{name}.csv", "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=list(zeilen[0]), delimiter=";")
+        w.writeheader()
+        w.writerows(zeilen)
+
+
+def erstelle_konkurrenz(quelle=ZIEL, ziel=KONKURRENZ):
+    """Kleiner Projektdatensatz: 2 Robotinos, 2 um Transporte konkurrierende Stationen (RASS1, RASS2).
+
+    Dauern stammen aus dem Testlauf 09.11. (Median je Station) bzw. aus derselben Fahrzeit-Annahme.
+    Bereitstellungs- und Bedarfszeitpunkte sind SZENARIOANNAHMEN: Sie sind so gesetzt, dass
+    zwei Lieferungen gleichzeitig auf ein Fahrzeug warten und nur eine davon eine bevorstehende
+    Montage ermöglicht (die andere erhöht nur den Vorrat).
+    """
+    from statistics import median
+    _, _, _, bedarf_ist = lade_testdatensatz(quelle)
+    dauer = {st: int(median(b["montage_dauer"] for b in bedarf_ist if b["station"] == st))
+             for st in ("RASS1", "RASS2")}
+    q_dauer = "Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+    q_szen = "SZENARIOANNAHME"
+
+    lieferungen = [
+        {"id": "L1", "auftrag": "P1", "bereit": 0, "abholort": "PICKSORT", "ziel": "RASS1", "positionen": 6,
+         "zweck": "Materialsatz P1 für RASS1", "quelle": q_szen},
+        {"id": "L2", "auftrag": "P2", "bereit": 10, "abholort": "PICKSORT", "ziel": "RASS1", "positionen": 6,
+         "zweck": "Materialsatz P2 für RASS1 (wird erst spät gebraucht = Vorrat)", "quelle": q_szen},
+        {"id": "L3", "auftrag": "P1", "bereit": 25, "abholort": "PICKSORT", "ziel": "RASS2", "positionen": 6,
+         "zweck": "Materialsatz P1 für RASS2 (wird bald gebraucht)", "quelle": q_szen},
+        {"id": "L4", "auftrag": "P2", "bereit": 40, "abholort": "PICKSORT", "ziel": "RASS2", "positionen": 6,
+         "zweck": "Materialsatz P2 für RASS2", "quelle": q_szen},
+    ]
+    # Je Produktionsauftrag 3 Werkstücke; Ankunft an RASS2 im Abstand der RASS1-Montagedauer
+    ankunft = {("P1", "RASS1"): 130, ("P1", "RASS2"): 300, ("P2", "RASS1"): 1300, ("P2", "RASS2"): 1500}
+    bedarf = []
+    for (auftrag, st), t in ankunft.items():
+        for i in range(3):
+            bedarf.append({"werkstueck": f"{auftrag}.{i + 1}", "station": st,
+                           "bedarf_ab": t + i * dauer["RASS1"], "montage_dauer": dauer[st],
+                           "quelle": f"bedarf_ab: {q_szen}; montage_dauer: {q_dauer}"})
+    bedarf.sort(key=lambda b: (b["bedarf_ab"], b["station"]))
+
+    _schreibe(ziel, "lieferungen", lieferungen)
+    _schreibe(ziel, "werkstueckbedarf", bedarf)
+    _schreibe(ziel, "fahrzeuge", _lies("fahrzeuge", quelle))
+    _schreibe(ziel, "fahrzeiten", [z for z in _lies("fahrzeiten", quelle) if z["nach"] in ("RASS1", "RASS2")])
+    print(f"Montagedauern {dauer}  ->  {ziel}")
+
+
 def _lies(name, ordner):
     with open(ordner / f"{name}.csv", encoding="utf-8-sig") as f:
         return list(csv.DictReader(f, delimiter=";"))
@@ -126,14 +183,19 @@ def lade_testdatensatz(ordner=ZIEL):
             return tab[(a, b)]
         raise KeyError(f"Keine Fahrzeit {a} -> {b} im Testdatensatz (nicht angenommen, bitte ergänzen)")
 
-    lieferungen = [{**z, "bereit": int(z["bereit"]), "auftrag": int(z["auftrag"])} for z in _lies("lieferungen", ordner)]
-    bedarf = [{**z, **{k: int(z[k]) for k in ("bedarf_ab", "ist_montage_start", "ist_montage_ende",
-                                               "montage_dauer", "warten_bis_start")}}
+    lieferungen = [{**z, "bereit": int(z["bereit"])} for z in _lies("lieferungen", ordner)]
+    zahlen = ("bedarf_ab", "ist_montage_start", "ist_montage_ende", "montage_dauer", "warten_bis_start")
+    bedarf = [{**z, **{k: int(z[k]) for k in zahlen if z.get(k) not in (None, "")}}
               for z in _lies("werkstueckbedarf", ordner)]
     return fahrzeuge, fahrzeit, lieferungen, bedarf
 
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("dump", type=Path, help="letzter Snapshot (.sql), z. B. ..._1557_production_finished.sql")
-    erstelle(p.parse_args().dump)
+    p.add_argument("dump", type=Path, nargs="?",
+                   help="letzter Snapshot (.sql), z. B. ..._1557_production_finished.sql; "
+                        "ohne Angabe wird nur der Konkurrenz-Datensatz aus dem vorhandenen Testlauf erzeugt")
+    args = p.parse_args()
+    if args.dump:
+        erstelle(args.dump)
+    erstelle_konkurrenz()
