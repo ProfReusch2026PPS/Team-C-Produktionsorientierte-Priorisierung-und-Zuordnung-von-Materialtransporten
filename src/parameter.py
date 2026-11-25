@@ -98,13 +98,13 @@ def berechne(dump):
                      f"tblresource, IDs {', '.join(map(str, rob.ResourceID))}", "", "Stammdaten, nicht alle im Einsatz"))
     out.append(zeile("robotinos_aktiv", 2, "Stück", "", "", "", "Beobachtung",
                      "tblmachinereport 09.11.2026: nur 24 und 25 mit laufenden Meldungen", "",
-                     "im Labor bestätigen; README verlangt mind. 2 Fahrzeuge"))
+                     "vom Team am 25.11.2026 als plausibel bewertet (2 von 6 gefahren); README verlangt mind. 2 Fahrzeuge"))
     buf = tabelle(schema, daten, "tblbuffer")
     for rid, name in RASS.items():
         b = buf[(buf.ResourceId == rid) & (buf.Description == "Box")].iloc[0]
         out.append(zeile(f"boxplaetze_{name}", int(b.Rows) * int(b.Columns), "Plätze", "", "", "", "MES-Wert",
                          f"tblbuffer ResourceId {rid} 'Box': Rows {b.Rows} × Columns {b.Columns}", "",
-                         "Übergabekapazität laut Stammdaten; im Labor bestätigen"))
+                         "Übergabekapazität laut Stammdaten; vom Team am 25.11.2026 als korrekt bewertet"))
 
     with open(ZIEL, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]), delimiter=";")

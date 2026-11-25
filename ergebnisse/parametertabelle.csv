@@ -10,7 +10,7 @@ fahrzeit_PICKSORT_RASS3;141;s;103;203;68;Szenarioannahme;Ableitung aus lieferzei
 fahrzeit_sensitivitaet;131;s;102;171;229;Szenarioannahme;wie oben, alle Stationen;keine;für die Sensitivitätsanalyse: Q1 und Q3 als untere/obere Variante
 beladen_entladen;0;s;;;;Szenarioannahme;'store box to target' hat im Median 0 s (nur Buchung);;in der Fahrzeit enthalten
 robotinos_registriert;6;Stück;;;;MES-Wert;tblresource, IDs 20, 21, 22, 23, 24, 25;;Stammdaten, nicht alle im Einsatz
-robotinos_aktiv;2;Stück;;;;Beobachtung;tblmachinereport 09.11.2026: nur 24 und 25 mit laufenden Meldungen;;"im Labor bestätigen; README verlangt mind. 2 Fahrzeuge"
-boxplaetze_RASS1;2;Plätze;;;;MES-Wert;tblbuffer ResourceId 2 'Box': Rows 1 × Columns 2;;"Übergabekapazität laut Stammdaten; im Labor bestätigen"
-boxplaetze_RASS2;2;Plätze;;;;MES-Wert;tblbuffer ResourceId 4 'Box': Rows 1 × Columns 2;;"Übergabekapazität laut Stammdaten; im Labor bestätigen"
-boxplaetze_RASS3;2;Plätze;;;;MES-Wert;tblbuffer ResourceId 6 'Box': Rows 1 × Columns 2;;"Übergabekapazität laut Stammdaten; im Labor bestätigen"
+robotinos_aktiv;2;Stück;;;;Beobachtung;tblmachinereport 09.11.2026: nur 24 und 25 mit laufenden Meldungen;;"vom Team am 25.11.2026 als plausibel bewertet (2 von 6 gefahren); README verlangt mind. 2 Fahrzeuge"
+boxplaetze_RASS1;2;Plätze;;;;MES-Wert;tblbuffer ResourceId 2 'Box': Rows 1 × Columns 2;;"Übergabekapazität laut Stammdaten; vom Team am 25.11.2026 als korrekt bewertet"
+boxplaetze_RASS2;2;Plätze;;;;MES-Wert;tblbuffer ResourceId 4 'Box': Rows 1 × Columns 2;;"Übergabekapazität laut Stammdaten; vom Team am 25.11.2026 als korrekt bewertet"
+boxplaetze_RASS3;2;Plätze;;;;MES-Wert;tblbuffer ResourceId 6 'Box': Rows 1 × Columns 2;;"Übergabekapazität laut Stammdaten; vom Team am 25.11.2026 als korrekt bewertet"
