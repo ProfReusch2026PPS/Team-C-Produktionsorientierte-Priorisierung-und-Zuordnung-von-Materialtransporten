@@ -21,7 +21,7 @@ Erzeugt mit `python -m src.testdatensatz` aus dem Testlauf vom 09.11. (`../testl
 
 ## Handrechnung FIFO (Referenzregel 1)
 
-Annahmen: Beladen/Entladen 0 s (in der Fahrzeit enthalten), Fahrzeug ist am Ziel wieder frei, Neuplanung bei Lieferbereitschaft und Fahrzeugfreigabe.
+Annahmen: Beladen/Entladen 0 s (in der Fahrzeit enthalten), Fahrzeug ist am Ziel wieder frei, Neuplanung bei Lieferbereitschaft und Fahrzeugfreigabe. **Achtung:** `src/simulation.py` setzt derzeit Platzhalter BELADEN = ENTLADEN = 10 s. Für den Abgleich mit dieser Tabelle dort 0 s setzen.
 
 | t [s] | Entscheidung | Ankunft |
 |---|---|---|

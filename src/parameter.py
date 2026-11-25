@@ -68,7 +68,8 @@ def berechne(dump):
     w, a, b, n = q(k.dauer)
     out.append(zeile("kommissionierzeit_je_position", w, "s", a, b, n, "MES-Wert",
                      f"tblfinstep OpNo 220 'prepare a box for comming orders', Ist-Dauer, {zeitraum}",
-                     "Schritte > 1 h entfernt", "Kommissionierzeit einer Box ≈ Positionen × Wert"))
+                     "Schritte > 1 h entfernt",
+                     "reine Bearbeitungszeit; zwischen den Positionen liegen Wartezeiten (z. B. auf Quellboxen). Für die Lieferbereitschaft daher anlage_bis_box_bereit verwenden, nicht Positionen × Wert"))
     fo = tabelle(schema, daten, "tblfinorder").set_index("ONo")
     ka = k.groupby("ONo").agg(e=("e", "max")).join(fo[["PlannedStart"]])
     ka["d"] = (ka.e - pd.to_datetime(ka.PlannedStart)).dt.total_seconds()

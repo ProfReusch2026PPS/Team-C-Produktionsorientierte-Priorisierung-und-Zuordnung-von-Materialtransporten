@@ -9,7 +9,7 @@ tblfinstep;'store box to target' mit Dauer 0 s;791;610.0000;0.7712;ONo 9177 Pos 
 tblresourceoperation vs. tblfinstep;Soll-Bearbeitungszeit weicht > Faktor 3 von Ist-Median ab (RASS, WPNo 1000);11;9.0000;0.8182;RASS2 OpNo 324: Soll 10 s, Ist-Median 39 s;Ist-Zeiten aus tblfinstep verwenden;Planzeiten unbrauchbar
 tblfinstep;PlannedEnd - PlannedStart (Median);14723;;;Median 0 s, max 20 s;nicht verwenden;Planzeiten ohne Aussage
 tblmachinereport;Robotino-Busy-Intervall > 1 h;6154;7.0000;0.0011;Robotino 23: 3,9 Tage busy;bereinigen;Status-Log nur grob nutzbar
-tblmachinereport;Robotino ohne Meldung am 09.11. nach 11:33;6;4.0000;0.6667;Robotinos 20–23;im Labor bestätigen;vermutlich 2 aktive Fahrzeuge
+tblmachinereport;Robotino ohne Meldung am 09.11. nach 11:33;6;4.0000;0.6667;Robotinos 20–23;vom Team am 25.11.2026 als plausibel bewertet;2 aktive Fahrzeuge im Modell
 tblfinstep;Robotino in Transportschritten nicht erfasst (ResourceID = Zielstation);791;791.0000;1.0000;OpNo 215;Lücke ausweisen;Fahrzeugzuordnung nicht rekonstruierbar
 Testdatensatz fahrzeiten.csv;Fahrzeit PICKSORT <-> RASS nicht im MES (TransportTime = 0) – Annahme nötig;229;;;Median Box fertig -> gebucht: RASS1 123 s, RASS2 132 s, RASS3 141 s (lieferzeit_proxy_kommissionierauftraege.csv);ANNAHME: Median je Station als Fahrzeit, symmetrisch;"enthält Warten auf Fahrzeug und Übergabe -> eher Obergrenze; in Sensitivitätsanalyse variieren"
 Testdatensatz fahrzeuge.csv;Startposition der Robotinos nicht protokolliert;2;2;1.0000;Robotinos 24 und 25;ANNAHME: Start an PICKSORT;beeinflusst nur die erste Leerfahrt
