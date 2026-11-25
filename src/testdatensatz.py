@@ -125,16 +125,16 @@ def _schreibe(ordner, name, zeilen):
 def erstelle_konkurrenz(quelle=ZIEL, ziel=KONKURRENZ):
     """Kleiner Projektdatensatz: 2 Robotinos, 2 um Transporte konkurrierende Stationen (RASS1, RASS2).
 
-    Dauern stammen aus dem Testlauf 09.11. (Median je Station) bzw. aus derselben Fahrzeit-Annahme.
+    Montagedauern aus ergebnisse/parametertabelle.csv, Fahrzeiten aus derselben Annahme wie der Testlauf.
     Bereitstellungs- und Bedarfszeitpunkte sind SZENARIOANNAHMEN: Sie sind so gesetzt, dass
     zwei Lieferungen gleichzeitig auf ein Fahrzeug warten und nur eine davon eine bevorstehende
     Montage ermöglicht (die andere erhöht nur den Vorrat).
     """
-    from statistics import median
-    _, _, _, bedarf_ist = lade_testdatensatz(quelle)
-    dauer = {st: int(median(b["montage_dauer"] for b in bedarf_ist if b["station"] == st))
-             for st in ("RASS1", "RASS2")}
-    q_dauer = "Median Ist-Montagedauer Testlauf 09.11. (werkstueckbedarf.csv)"
+    # Montagedauern aus der Parametertabelle (alle Durchläufe des Produkts, robuster als 3 Werkstücke)
+    with open(PROJEKT / "ergebnisse" / "parametertabelle.csv", encoding="utf-8-sig") as f:
+        par = {z["parameter"]: z for z in csv.DictReader(f, delimiter=";")}
+    dauer = {st: int(par[f"montagedauer_{st}"]["wert"]) for st in ("RASS1", "RASS2")}
+    q_dauer = "Median Montagedauer laut ergebnisse/parametertabelle.csv"
     q_szen = "SZENARIOANNAHME"
 
     lieferungen = [

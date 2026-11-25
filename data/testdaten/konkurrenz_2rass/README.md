@@ -1,13 +1,13 @@
 # Testdatensatz „Konkurrenzfall 2 Robotinos / 2 Stationen“ (Team C)
 
 Kleiner Projektdatensatz für Meilenstein M2 aus `docs/simpy-arbeitsplan.md`: **2 Robotinos, 2 Stationen (RASS1, RASS2), die um Transporte konkurrieren.**
-Erzeugt mit `python -m src.testdatensatz` aus dem Testlauf vom 09.11. (`../testlauf_2026-11-09/`). Zeiten in Sekunden ab Szenariostart.
+Erzeugt mit `python -m src.testdatensatz` aus dem Testlauf vom 09.11. (`../testlauf_2026-11-09/`) und der Parametertabelle. Zeiten in Sekunden ab Szenariostart.
 
 ## Was echt und was angenommen ist
 
 | Angabe | Herkunft |
 |---|---|
-| Montagedauer RASS1 132 s, RASS2 120 s | Median der Ist-Montagedauern im Testlauf 09.11. (MES) |
+| Montagedauer RASS1 136 s, RASS2 121 s | `ergebnisse/parametertabelle.csv` (Median aller Durchläufe des Produkts WPNo 1000, MES) |
 | Robotinos 24 und 25 | MES (am 09.11. aktiv); Start an PICKSORT = Annahme |
 | Fahrzeiten PICKSORT ↔ RASS1 123 s, ↔ RASS2 132 s | Annahme aus Lieferzeit-Proxy (wie im Testlauf-Datensatz) |
 | Bereitstellungszeiten der 4 Lieferungen, Ankunftszeiten der Werkstücke | **Szenarioannahme** |

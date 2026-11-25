@@ -20,6 +20,7 @@ PROXY = PROJEKT / "ergebnisse" / "lieferzeit_proxy_kommissionierauftraege.csv"
 RASS = {2: "RASS1", 4: "RASS2", 6: "RASS3"}
 MONTAGE_OPS = [320, 321, 322, 323, 324, 325, 420]   # ohne 215 (Boxbuchung) und Demontage (326-330)
 MAX_SCHRITT = 3600                                   # Befundregister: Schritte > 1 h als Ausreißer
+PRODUKT_WPNO = 1000                                  # Produkt des Testlaufs 09.11. (Aufträge 9176, 9178)
 
 
 def tabelle(schema, daten, name):
@@ -47,7 +48,7 @@ def berechne(dump):
     out = []
 
     # Montagedauer je Werkstück und Station
-    m = st[st.ResourceID.isin(RASS) & st.OpNo.isin(MONTAGE_OPS)]
+    m = st[st.ResourceID.isin(RASS) & st.OpNo.isin(MONTAGE_OPS) & (st.WPNo == PRODUKT_WPNO)]
     g = m.groupby(["ONo", "OPos", "ResourceID"]).agg(
         s=("s", "min"), e=("e", "max"),
         p=("OpNo", lambda x: (x == 320).any()), v=("OpNo", lambda x: (x == 321).any())).reset_index()
@@ -57,9 +58,10 @@ def berechne(dump):
         d = g[g.ResourceID == rid].dauer
         w, a, b, n = q(d)
         out.append(zeile(f"montagedauer_{name}", w, "s", a, b, n, "Ableitung",
-                         f"tblfinstep, ResourceID {rid}: erster Schritt 'place cover' bis Ende 'move part to pallet', {zeitraum}",
-                         f"Schritte mit negativer Dauer oder > 1 h entfernt; {int((d > 300).sum())} Durchläufe > 300 s im Median enthalten",
-                         "Median robust gegen Ausreißer; Arbeitsplanvarianten nicht getrennt"))
+                         f"tblfinstep, ResourceID {rid}, nur WPNo {PRODUKT_WPNO}: 'place cover' bis Ende 'move part to pallet', {zeitraum}",
+                         f"andere Arbeitsplanvarianten ausgeschlossen; Schritte < 0 oder > 1 h entfernt; "
+                         f"{int((d > 300).sum())} Durchläufe > 300 s (einzelne lange Schritte, vermutlich Störungen) im Median enthalten",
+                         "Median robust gegen Ausreißer; Q3 als obere Variante nutzbar"))
 
     # Kommissionierung
     k = st[st.OpNo == 220]
