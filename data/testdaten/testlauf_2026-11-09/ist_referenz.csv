@@ -1,0 +1,13 @@
+﻿objekt;ereignis;zeit;uhrzeit;quelle
+L9177;material_an_station;596;15:17:44;tblfinstep OpNo 215 (erste Buchung)
+9178.2;montage_start_RASS1;608;15:17:56;tblfinstep
+9176.1;montage_start_RASS1;760;15:20:28;tblfinstep
+9178.1;montage_start_RASS1;893;15:22:41;tblfinstep
+L9179;material_an_station;1626;15:34:54;tblfinstep OpNo 215 (erste Buchung)
+9176.1;montage_start_RASS2;1663;15:35:31;tblfinstep
+9178.2;montage_start_RASS2;1788;15:37:36;tblfinstep
+9178.1;montage_start_RASS2;1912;15:39:40;tblfinstep
+L9180;material_an_station;2239;15:45:07;tblfinstep OpNo 215 (erste Buchung)
+9178.2;montage_start_RASS3;2299;15:46:07;tblfinstep
+9176.1;montage_start_RASS3;2365;15:47:13;tblfinstep
+9178.1;montage_start_RASS3;2429;15:48:17;tblfinstep

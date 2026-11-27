@@ -153,6 +153,13 @@ Die Prüfung wird bereits beim Aufbau der Referenzsimulation mitentwickelt.
 
 Anlagenverständnis, Schnittstellen und Ergebnisinterpretation stimmt das Team gemeinsam ab.
 
+#### Offene Fragen zu den Testdatensätzen (Stand 25.11.2026)
+
+Die Testdatensätze liegen in `data/testdaten/`, Erläuterungen in [`docs/parameter-und-testdaten.md`](docs/parameter-und-testdaten.md).
+
+- [ ] **Moritz:** Passt „eine Box pro Station und Auftrag“ zum SimPy-Modell? Für den Abgleich mit der Handrechnung im Konkurrenzfall (`data/testdaten/konkurrenz_2rass/README.md`) Be- und Entladen auf 0 s setzen.
+- [ ] **Orkun:** Darf eine Regel ein freies Fahrzeug kurz zurückhalten, statt sofort eine Vorratslieferung zu fahren? Davon hängt ab, ob die eigene Regel im Konkurrenzfall überhaupt besser sein kann.
+
 Als theoretische Unterstützung dienen insbesondere die Lehrunterlagen zu Datenverwaltung (Kapitel 02), Reihenfolgeregeln (Kapitel 05), Produktionslogistik (Kapitel 11), MES-Ereignissen (Kapitel 12) und logistischen Zielkonflikten (Kapitel 13). Verbindliche projektspezifische Regeln folgen aus Aufgabenstellung, Referenzpaket und bestätigter Abstimmung.
 
 Als Nächstes ergänzt Viola das Befundregister, Moritz ergänzt den Beispielablauf um ein strukturiertes Ereignisprotokoll zur Auswertung von Wartezeiten, Ankunftszeiten und Fahrzeugbelegung und Orkun setzt die beiden Referenzregeln um.

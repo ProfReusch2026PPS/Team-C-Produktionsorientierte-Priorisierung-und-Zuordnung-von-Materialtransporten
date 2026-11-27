@@ -1,0 +1,13 @@
+﻿werkstueck;station;bedarf_ab;montage_dauer;quelle
+P1.1;RASS1;130;136;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P1.2;RASS1;266;136;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P1.1;RASS2;300;121;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P1.3;RASS1;402;136;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P1.2;RASS2;436;121;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P1.3;RASS2;572;121;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P2.1;RASS1;1300;136;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P2.2;RASS1;1436;136;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P2.1;RASS2;1500;121;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P2.3;RASS1;1572;136;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P2.2;RASS2;1636;121;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"
+P2.3;RASS2;1772;121;"bedarf_ab: SZENARIOANNAHME; montage_dauer: Median Montagedauer laut ergebnisse/parametertabelle.csv"

@@ -1,0 +1,5 @@
+﻿id;auftrag;bereit;abholort;ziel;positionen;zweck;quelle
+L1;P1;0;PICKSORT;RASS1;6;Materialsatz P1 für RASS1;SZENARIOANNAHME
+L2;P2;10;PICKSORT;RASS1;6;Materialsatz P2 für RASS1 (wird erst spät gebraucht = Vorrat);SZENARIOANNAHME
+L3;P1;25;PICKSORT;RASS2;6;Materialsatz P1 für RASS2 (wird bald gebraucht);SZENARIOANNAHME
+L4;P2;40;PICKSORT;RASS2;6;Materialsatz P2 für RASS2;SZENARIOANNAHME
