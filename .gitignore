@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Rohdaten und daraus erzeugte Datenbanken NICHT hochladen:
+# Die MES-Abzüge enthalten Passwörter (tblusercontrol).
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.sql
+*.sqlite

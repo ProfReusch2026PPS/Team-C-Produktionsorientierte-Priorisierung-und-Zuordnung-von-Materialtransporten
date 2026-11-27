@@ -20,6 +20,8 @@ Im Prioritätstest wurde der Robotino bei Sekunde 42 frei. War der dringende Auf
 
 **Stand 19.11.2026.** Die Zwischenpräsentation vom 18.11.2026 dokumentiert die Planungsaufgabe, den vorgesehenen Vergleich der drei Transportregeln und erste Befunde aus den MES-Snapshots. Die Umsetzung der Regeln, der SimPy-Simulation und der unabhängigen Prüfung sowie die Vergleichsversuche stehen als nächste Arbeitsschritte an.
 
+> **Code und Datenauswertung:** Ein erstes Projektgerüst (Export, Snapshot-Umwandlung, Datenqualität, Planer mit Referenzregeln 1 und 2, SimPy-Gerüst, unabhängige Prüfung) und ein Befundregister-Entwurf aus den MES-Snapshots vom 09.11. liegen vor, siehe [`CODE.md`](CODE.md) und [`ergebnisse/`](ergebnisse/). Die Simulation im Gerüst arbeitet noch mit Demo-Werten. Rohdaten sind nicht im Repository, da die MES-Abzüge Passwörter enthalten.
+
 Fachliche Grundlage ist `Pruefungsprojekte_IoT_Factory_Studierende(1).pdf`, Stand 30. Oktober 2026: Team C auf Seiten 4–5, gemeinsame Anforderungen und Abgaben auf Seiten 6–7 sowie Arbeitsrahmen und Zwischenstände auf Seite 1.
 
 Das angekündigte Referenzpaket soll Daten, Formate, Produktionsabschnitt, feste Umgebungsregeln und ein kleines SimPy-Grundgerüst bereitstellen. Konkrete Datenfelder, Parameter, Stationszahl und Anlagenregeln werden nach dessen Bereitstellung geprüft. Das fachliche Simulationsmodell entwickelt das Team selbst. Ergebnisse oder Code anderer Teams werden nicht benötigt.
